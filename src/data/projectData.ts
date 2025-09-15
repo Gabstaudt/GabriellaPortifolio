@@ -80,5 +80,23 @@ export const projects: Project[] = [
     imageUrl: "/artcancer.png",
     category: "Artigos",
     githubUrl:"https://drive.google.com/file/d/1q5ACGvecQeEjnyRUt1W72Zz62pgMIhjc/view?usp=sharing"
+  },
+  {
+    id: 9,
+    title: "Uso de redes neurais convolucionais para classificação do câncer cervical com imagens citológicas do papanicolau",
+    description: "Artigo Publicado na Revista Acervo +. Objetivo: implementar uma arquitetura de rede convolucional para identificar padrões de doenças em diferentes estágios da lesão cervical, utilizando dados de esfregaço de Papanicolau, que se referem às imagens obtidas a partir do exame, o qual é utilizado para detectar alterações nas células do colo do útero que podem ser indicativas do câncer cervical",
+    technologies: ["Escrita", "IA", "Saúde", "Inovação", "Tree Decision", "XGboost", "KNN"],
+    imageUrl: "/acervo+.png",
+    category: "Artigos",
+    githubUrl:"https://acervomais.com.br/index.php/saude/article/view/21152"
+  },  
+{
+    id: 10,
+    title: "Diagnóstico Inteligente de Câncer de Colo de útero: Protótipo de Apoio à Decisão Clínica com Colposcopia",
+    description: "Resumo Publicado no ll Congresso Amazônico de Medicina e Inovação em Saúde",
+    technologies: ["Escrita", "IA", "Saúde", "Inovação", "Tree Decision", "XGboost", "KNN", "Resumo", "Medicina"],
+    imageUrl: "/acervo+.png",
+    category: "Artigos",
+    githubUrl:"https://drive.google.com/file/d/1A2r1fKceIRXsU-2aNqRLKiD1FynEj7Nz/view?usp=sharing"
   }
 ];
