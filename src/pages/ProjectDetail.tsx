@@ -48,7 +48,14 @@ const ProjectDetail: React.FC = () => {
           </div>
 
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">{project.title}</h1>
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <h1 className="text-3xl md:text-4xl font-bold">{project.title}</h1>
+              {project.inProgress && (
+                <span className="bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                  Em andamento
+                </span>
+              )}
+            </div>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
               {project.longDescription ?? project.description}
             </p>

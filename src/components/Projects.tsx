@@ -90,12 +90,18 @@ const Projects: React.FC = () => {
                 className="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105"
                 whileHover={{ y: -5 }}
               >
-                <div className="h-48 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
                   <img 
                     src={project.imageUrl} 
                     alt={project.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
+                  {project.inProgress && (
+                    <div className="absolute left-3 top-3 bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                      Em andamento
+                    </div>
+                  )}
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">

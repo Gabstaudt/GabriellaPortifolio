@@ -8,6 +8,7 @@ export interface Project {
   imageUrl: string;
   category: 'frontend' | 'backend' | 'design' | 'iot' | 'Artigos';
   githubUrl?: string;
+  inProgress?: boolean;
 }
 
 export const projects: Project[] = [
@@ -130,5 +131,38 @@ export const projects: Project[] = [
     imageUrl: "/blockchain.png",
     category: "Artigos",
     githubUrl:"https://drive.google.com/file/d/1A_I91wlFwnEKZanIkLD3rT7tbYfDR4uZ/view?usp=sharing"
+  },
+  {
+    id: 13,
+    slug: "jurisync",
+    title: "JuriSync",
+    description: "Software jurídico em andamento focado em auditoria, controle de contratos e compliance. Estruturado por ecossistemas (empresas) com um admin master que gerencia permissões e usuários, garantindo governança e rastreabilidade. Stack: NestJS no back-end, Next.js no front-end, Docker e PostgreSQL.",
+    technologies: ["NestJS", "Next.js", "TypeScript", "Docker", "PostgreSQL", "Compliance", "Auditoria"],
+    imageUrl: "/placeholder.png",
+    category: "backend",
+    githubUrl: "",
+    inProgress: true
+  },
+  {
+    id: 14,
+    slug: "monitoramento-plantas-ecossistemas",
+    title: "Plataforma de Monitoramento de Plantas",
+    description: "Plataforma em andamento para monitoramento de plantas com sensores IoT. O sistema organiza os dados por ecossistemas, cada um com um admin master responsável por permissões e gestão de usuários. Back-end em NestJS, front-end em Next.js, Docker, PostgreSQL e schema no Prisma, com integração de sensores para coleta em tempo real.",
+    technologies: ["NestJS", "Next.js", "IoT", "Sensores", "TypeScript", "Docker", "PostgreSQL", "Prisma"],
+    imageUrl: "/placeholder.png",
+    category: "iot",
+    githubUrl: "",
+    inProgress: true
+  },
+  {
+    id: 15,
+    slug: "find-the-bug",
+    title: "Find the Bug",
+    description: "Jogo mobile em andamento que incentiva o ensino de programação por meio de desafios gamificados. Front-end mobile em Kotlin e back-end em C++, com mecânicas voltadas para lógica e resolução de problemas.",
+    technologies: ["Kotlin", "C++", "Mobile", "Gamificação"],
+    imageUrl: "/placeholder.png",
+    category: "frontend",
+    githubUrl: "",
+    inProgress: true
   }
 ];
