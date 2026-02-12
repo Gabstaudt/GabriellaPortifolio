@@ -95,8 +95,26 @@ export const projects: Project[] = [
     title: "Diagnóstico Inteligente de Câncer de Colo de útero: Protótipo de Apoio à Decisão Clínica com Colposcopia",
     description: "Resumo Publicado no ll Congresso Amazônico de Medicina e Inovação em Saúde",
     technologies: ["Escrita", "IA", "Saúde", "Inovação", "Tree Decision", "XGboost", "KNN", "Resumo", "Medicina"],
-    imageUrl: "/acervo+.png",
+    imageUrl: "/congressoamazonico.png",
     category: "Artigos",
     githubUrl:"https://drive.google.com/file/d/1A2r1fKceIRXsU-2aNqRLKiD1FynEj7Nz/view?usp=sharing"
+  },
+  {
+    id: 11,
+    title: "Protótipo de um sistema web para classificação de exames citológicos do papanicolau",
+    description: "Desenvolvimento de um protótipo de sistema web inteligente para classificação de exames citológicos do Papanicolau, utilizando redes neurais convolucionais para identificar possíveis células cancerígenas. O modelo alcançou 91% de acurácia, demonstrando potencial para auxiliar no diagnóstico precoce do câncer do colo do útero. Premiado terceiro melhor artigo da 13° Semana Acadêmica da Uepa Campus Castanhal",
+    technologies: ["Escrita", "IA", "Saúde", "Inovação", "Tree Decision", "XGboost", "KNN", "Resumo", "Medicina"],
+    imageUrl: "/semanaacademica.png",
+    category: "Artigos",
+    githubUrl:"https://drive.google.com/file/d/1j2yTh9XMVO6BUahd2tlt_nLbE_gFDuhk/view?usp=sharing"
+  },
+  {
+    id: 12,
+    title: "Proposta de Modelo Conceitual para Gestão Sustentável na Amazônia: Integração de Blockchain e Compliance AMbiental para Combate à Exploração Ilegal de Recursos Naturais",
+    description: "Proposta de um modelo conceitual de software que integra blockchain e compliance ambiental para fortalecer a governança na gestão de recursos naturais da Amazônia. O sistema prevê registros imutáveis, auditoria automatizada via smart contracts e rastreabilidade para empresas e órgãos fiscalizadores. Artigo aprovado na 13ª Semana Acadêmica da UEPA – Campus Castanhal.",
+    technologies: ["Escrita", "Blockchain", "Governança", "Compliance", "Engenharia de Software"],
+    imageUrl: "/blockchain.png",
+    category: "Artigos",
+    githubUrl:"https://drive.google.com/file/d/1A_I91wlFwnEKZanIkLD3rT7tbYfDR4uZ/view?usp=sharing"
   }
 ];
