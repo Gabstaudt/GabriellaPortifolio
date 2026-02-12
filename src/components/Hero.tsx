@@ -27,13 +27,13 @@ const Hero: React.FC = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <a 
-                href="#projects" 
+                href="/#projects" 
                 className="px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white rounded-lg transition-colors shadow-md"
               >
                 Ver Projetos
               </a>
               <a 
-                href="#contact" 
+                href="/#contact" 
                 className="px-6 py-3 bg-transparent border-2 border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white rounded-lg transition-colors"
               >
                 Contato

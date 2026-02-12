@@ -20,27 +20,27 @@ const Footer: React.FC = () => {
               <h4 className="text-lg font-semibold mb-3">Links Rápidos</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#home" className="text-gray-400 hover:text-teal-400 transition-colors">
+                  <a href="/#home" className="text-gray-400 hover:text-teal-400 transition-colors">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="#about" className="text-gray-400 hover:text-teal-400 transition-colors">
+                  <a href="/#about" className="text-gray-400 hover:text-teal-400 transition-colors">
                     Sobre
                   </a>
                 </li>
                 <li>
-                  <a href="#projects" className="text-gray-400 hover:text-teal-400 transition-colors">
+                  <a href="/#projects" className="text-gray-400 hover:text-teal-400 transition-colors">
                     Projetos
                   </a>
                 </li>
                 <li>
-                  <a href="#skills" className="text-gray-400 hover:text-teal-400 transition-colors">
+                  <a href="/#skills" className="text-gray-400 hover:text-teal-400 transition-colors">
                     Habilidades
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="text-gray-400 hover:text-teal-400 transition-colors">
+                  <a href="/#contact" className="text-gray-400 hover:text-teal-400 transition-colors">
                     Contato
                   </a>
                 </li>

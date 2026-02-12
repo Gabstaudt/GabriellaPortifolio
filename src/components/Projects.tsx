@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { projects } from '../data/projectData';
@@ -113,14 +114,24 @@ const Projects: React.FC = () => {
                       </span>
                     ))}
                   </div>
-                  <a 
-                    href={project.githubUrl} 
-                    target='_blank'
-                    rel="noopener noreferrer"
-                    className="inline-block px-4 py-2 bg-transparent border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white rounded-lg transition-colors"
-                  >
-                    Ver detalhes
-                  </a>
+                  <div className="flex flex-wrap gap-3">
+                    <Link
+                      to={`/projetos/${project.slug}`}
+                      className="inline-block px-4 py-2 bg-transparent border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white rounded-lg transition-colors"
+                    >
+                      Ver detalhes
+                    </Link>
+                    {project.githubUrl && (
+                      <a 
+                        href={project.githubUrl} 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white rounded-lg transition-colors"
+                      >
+                        Ver projeto
+                      </a>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}
