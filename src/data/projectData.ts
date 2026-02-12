@@ -9,6 +9,7 @@ export interface Project {
   category: 'frontend' | 'backend' | 'design' | 'iot' | 'Artigos';
   githubUrl?: string;
   inProgress?: boolean;
+  relatedSlugs?: string[];
 }
 
 export const projects: Project[] = [
@@ -40,7 +41,8 @@ export const projects: Project[] = [
     technologies: ["ESP32", "JavaScript", "Express.js", "Node.js", "HTML", "CSS"],
     imageUrl: "/plant.png",
     category: "iot",
-    githubUrl:"https://github.com/Gabstaudt/PlantConnect"
+    githubUrl:"https://github.com/Gabstaudt/PlantConnect",
+    relatedSlugs: ["artigo-plant-connect"]
   },
   {
     id: 4,
@@ -50,7 +52,8 @@ export const projects: Project[] = [
     technologies: ["Escrita", "Sustentabilidade", "Iot"],
     imageUrl: "/present.png",
     category: "Artigos",
-    githubUrl: "https://drive.google.com/file/d/1Ud8fh3-98RvhRT-8OsUf_sxs1_pXLaUU/view?usp=sharing"
+    githubUrl: "https://drive.google.com/file/d/1Ud8fh3-98RvhRT-8OsUf_sxs1_pXLaUU/view?usp=sharing",
+    relatedSlugs: ["monitoramento-iot"]
   },
   {
     id: 5,
@@ -120,7 +123,8 @@ export const projects: Project[] = [
     technologies: ["Escrita", "IA", "Saúde", "Inovação", "Tree Decision", "XGboost", "KNN", "Resumo", "Medicina"],
     imageUrl: "/semanaacademica.png",
     category: "Artigos",
-    githubUrl:"https://drive.google.com/file/d/1j2yTh9XMVO6BUahd2tlt_nLbE_gFDuhk/view?usp=sharing"
+    githubUrl:"https://drive.google.com/file/d/1j2yTh9XMVO6BUahd2tlt_nLbE_gFDuhk/view?usp=sharing",
+    relatedSlugs: ["prototipo-cancer-desenvolvimento"]
   },
   {
     id: 12,
@@ -130,7 +134,8 @@ export const projects: Project[] = [
     technologies: ["Escrita", "Blockchain", "Governança", "Compliance", "Engenharia de Software"],
     imageUrl: "/blockchain.png",
     category: "Artigos",
-    githubUrl:"https://drive.google.com/file/d/1A_I91wlFwnEKZanIkLD3rT7tbYfDR4uZ/view?usp=sharing"
+    githubUrl:"https://drive.google.com/file/d/1A_I91wlFwnEKZanIkLD3rT7tbYfDR4uZ/view?usp=sharing",
+    relatedSlugs: ["blockchain-ambiental-desenvolvimento"]
   },
   {
     id: 13,
@@ -164,5 +169,29 @@ export const projects: Project[] = [
     category: "frontend",
     githubUrl: "",
     inProgress: true
+  },
+  {
+    id: 16,
+    slug: "prototipo-cancer-desenvolvimento",
+    title: "Protótipo de Classificação de Exames Citológicos (Desenvolvimento)",
+    description: "Projeto de desenvolvimento do protótipo web que aplica redes neurais convolucionais para classificar exames citológicos do Papanicolau. O sistema foi pensado para apoiar o diagnóstico precoce do câncer do colo do útero, com interface clínica, fluxo de triagem e painéis de resultado.",
+    technologies: ["React", "Python", "CNN", "Saúde", "IA"],
+    imageUrl: "/placeholder.png",
+    category: "backend",
+    githubUrl: "",
+    inProgress: true,
+    relatedSlugs: ["artigo-prototipo-classificacao-papanicolau"]
+  },
+  {
+    id: 17,
+    slug: "blockchain-ambiental-desenvolvimento",
+    title: "Blockchain Ambiental para Gestão Sustentável (Desenvolvimento)",
+    description: "Implementação em código do modelo conceitual de governança ambiental: registros imutáveis em blockchain, trilhas de auditoria e smart contracts para compliance. A solução visa rastreabilidade de operações e apoio à fiscalização de recursos naturais na Amazônia.",
+    technologies: ["Blockchain", "Smart Contracts", "Compliance", "Governança", "Engenharia de Software"],
+    imageUrl: "/placeholder.png",
+    category: "backend",
+    githubUrl: "",
+    inProgress: true,
+    relatedSlugs: ["artigo-modelo-conceitual-blockchain"]
   }
 ];

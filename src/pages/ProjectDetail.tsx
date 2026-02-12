@@ -25,6 +25,10 @@ const ProjectDetail: React.FC = () => {
     );
   }
 
+  const relatedProjects = (project.relatedSlugs ?? [])
+    .map((relatedSlug) => projects.find((item) => item.slug === relatedSlug))
+    .filter((item): item is NonNullable<typeof item> => Boolean(item));
+
   return (
     <section className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,6 +90,43 @@ const ProjectDetail: React.FC = () => {
             )}
           </div>
         </div>
+
+        {relatedProjects.length > 0 && (
+          <div className="mt-16">
+            <h2 className="text-2xl font-semibold mb-6">Projetos relacionados</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {relatedProjects.map((related) => (
+                <Link
+                  key={related.slug}
+                  to={`/projetos/${related.slug}`}
+                  className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div className="h-40 overflow-hidden">
+                    <img
+                      src={related.imageUrl}
+                      alt={related.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="text-lg font-semibold">{related.title}</h3>
+                      {related.inProgress && (
+                        <span className="bg-amber-500 text-white text-xs font-semibold px-2 py-0.5 rounded-full">
+                          Em andamento
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                      {related.description}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
