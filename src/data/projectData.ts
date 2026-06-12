@@ -239,10 +239,44 @@ export const projects: Project[] = [
     title: "Blockchain Ambiental para Gestão Sustentável (Desenvolvimento)",
     description: "Implementação em código do modelo conceitual de governança ambiental: registros imutáveis em blockchain, trilhas de auditoria e smart contracts para compliance. A solução visa rastreabilidade de operações e apoio à fiscalização de recursos naturais na Amazônia.",
     technologies: ["Blockchain", "Smart Contracts", "Compliance", "Governança", "Engenharia de Software"],
-    imageUrl: "/placeholder.png",
+    imageUrl: "/blockchain1.png",
+    galleryImages: [
+      {
+        src: "/blockchain1.png",
+        alt: "Tela inicial ",
+        caption: "Tela inicial de apresentação do sistema."
+      },
+      {
+        src: "/blockchain2.png",
+        alt: "Tela incial",
+        caption: "Tela inicial do administrador do sistema com mapa"
+      },
+            {
+        src: "/blockchain3.png",
+        alt: "Tela Lotes",
+        caption: "Tela de visualização de lotes analisados"
+      },
+                  {
+        src: "/blockchain4.png",
+        alt: "Auditoria",
+        caption: "Tela de anáuditoria do sistema"
+      }
+    ],
     category: "backend",
     githubUrl: "",
     inProgress: true,
     relatedSlugs: ["artigo-modelo-conceitual-blockchain"]
+  },
+    {
+    id: 18,
+    slug: "conexao-perdida",
+    title: "Conexão Perdida, um jogo do Modelo OSI",
+    description: "Um jogo desenvolvido para ludicidade no aprendizado do Modelo OSI. O jogo contém 3 modelos sendo: individual, cooperativo e competitivo. No individual o usuário responde um quiz com o fundamento de restaurar a rede seguindo o modelo. No modo cooperativo, um jogador atua como operador e o outro como analista para restaurar a rede. Já no modelo competitivo dois ou mais jogadores respondem o quiz e recebem um ranking ao final da partida.",
+    technologies: ["Jogo", "Modelo OSI", "Redes e Computadores", "Engenharia de Software"],
+    imageUrl: "/jogoosi.png",
+    category: "backend",
+    githubUrl: "",
+    inProgress: true,
+    relatedSlugs: ["conexao-perdida"]
   }
 ];
