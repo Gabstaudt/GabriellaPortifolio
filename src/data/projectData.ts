@@ -158,9 +158,26 @@ export const projects: Project[] = [
     id: 13,
     slug: "jurisync",
     title: "JuriSync",
-    description: "Software jurídico em andamento focado em auditoria, controle de contratos e compliance. Estruturado por ecossistemas (empresas) com um admin master que gerencia permissões e usuários, garantindo governança e rastreabilidade. Stack: NestJS no back-end, Next.js no front-end, Docker e PostgreSQL.",
+    description: "Software jurídico em andamento focado em auditoria, controle de contratos e compliance. Estruturado por ecossistemas (empresas - multi tenant) com um admin master que gerencia permissões e usuários, garantindo governança e rastreabilidade. Stack: NestJS no back-end, Next.js no front-end, Docker e PostgreSQL.",
     technologies: ["NestJS", "Next.js", "TypeScript", "Docker", "PostgreSQL", "Compliance", "Auditoria"],
-    imageUrl: "/placeholder.png",
+    imageUrl: "/jurisync1.png",
+    galleryImages: [
+      {
+        src: "/jurisync1.png",
+        alt: "Tela inicial de login da plataforma",
+        caption: "Tela inicial de login do sistema."
+      },
+      {
+        src: "/jurisync2.png",
+        alt: "Tela Cadastro",
+        caption: "Tela de cadastro do primeiro administrador"
+      }
+      //       {
+      //   src: "/jurisync3.png",
+      //   alt: "Tela incial",
+      //   caption: "Tela de dashboard inicial do perfil administrador"
+      // }
+    ],
     category: "backend",
     githubUrl: "",
     inProgress: true
