@@ -190,10 +190,27 @@ export const projects: Project[] = [
   {
     id: 16,
     slug: "prototipo-cancer-desenvolvimento",
-    title: "Protótipo de Classificação de Exames Citológicos (Desenvolvimento)",
+    title: "Colpoview: Protótipo de Classificação de Exames Citológicos",
     description: "Projeto de desenvolvimento do protótipo web que aplica redes neurais convolucionais para classificar exames citológicos do Papanicolau. O sistema foi pensado para apoiar o diagnóstico precoce do câncer do colo do útero, com interface clínica, fluxo de triagem e painéis de resultado.",
     technologies: ["React", "Python", "CNN", "Saúde", "IA"],
-    imageUrl: "/placeholder.png",
+    imageUrl: "/colpoview1.png",
+        galleryImages: [
+      {
+        src: "/colpoview1.png",
+        alt: "Tela inicial de login da plataforma",
+        caption: "Tela inicial de login do sistema."
+      },
+      {
+        src: "/colpoview2.png",
+        alt: "Tela Pacientes",
+        caption: "Tela de visualização da lista completa de pacientes do sistema"
+      },
+            {
+        src: "/colpoview3.png",
+        alt: "Tela Análise",
+        caption: "Tela de análise de imagem do exame de colposcopia, seleção de paciente e resultado"
+      }
+    ],
     category: "backend",
     githubUrl: "",
     inProgress: true,
