@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Mail, MapPin, Phone } from 'lucide-react';
 
+const contactEndpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT;
+
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -10,7 +12,15 @@ const Contact: React.FC = () => {
     subject: '',
     message: ''
   });
-  
+  const [status, setStatus] = useState<{
+    type: 'idle' | 'success' | 'error';
+    message: string;
+  }>({
+    type: 'idle',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -39,15 +49,56 @@ const Contact: React.FC = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (status.type !== 'idle') {
+      setStatus({ type: 'idle', message: '' });
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    console.log('Form submitted:', formData);
-    alert('Mensagem enviada com sucesso! (Simulação)');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+
+    if (!contactEndpoint) {
+      setStatus({
+        type: 'error',
+        message:
+          'Configure VITE_CONTACT_FORM_ENDPOINT para que o formulÃ¡rio envie mensagens.'
+      });
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+      setStatus({ type: 'idle', message: '' });
+
+      const response = await fetch(contactEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Falha no envio');
+      }
+
+      setStatus({
+        type: 'success',
+        message: 'Mensagem enviada com sucesso. Vou receber no email configurado.'
+      });
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message:
+          'NÃ£o foi possÃ­vel enviar a mensagem agora. Verifique a configuraÃ§Ã£o do endpoint.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -56,10 +107,10 @@ const Contact: React.FC = () => {
         <motion.div
           ref={ref}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
+          animate={inView ? 'visible' : 'hidden'}
           variants={containerVariants}
         >
-          <motion.h2 
+          <motion.h2
             variants={itemVariants}
             className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
           >
@@ -67,14 +118,11 @@ const Contact: React.FC = () => {
           </motion.h2>
 
           <div className="flex flex-col lg:flex-row gap-12">
-            <motion.div 
-              variants={itemVariants}
-              className="lg:w-1/3"
-            >
+            <motion.div variants={itemVariants} className="lg:w-1/3">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-                Informações de Contato
+                InformaÃ§Ãµes de Contato
               </h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="flex-shrink-0 h-10 w-10 rounded-full bg-teal-100 dark:bg-teal-800 flex items-center justify-center">
@@ -89,7 +137,7 @@ const Contact: React.FC = () => {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="flex-shrink-0 h-10 w-10 rounded-full bg-teal-100 dark:bg-teal-800 flex items-center justify-center">
                     <Phone className="h-5 w-5 text-teal-500 dark:text-teal-300" />
@@ -103,27 +151,24 @@ const Contact: React.FC = () => {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="flex-shrink-0 h-10 w-10 rounded-full bg-teal-100 dark:bg-teal-800 flex items-center justify-center">
                     <MapPin className="h-5 w-5 text-teal-500 dark:text-teal-300" />
                   </div>
                   <div className="ml-4">
                     <p className="text-base font-medium text-gray-900 dark:text-white">
-                      Localização
+                      LocalizaÃ§Ã£o
                     </p>
                     <p className="text-base text-gray-700 dark:text-gray-300">
-                      Ananindeua, Pará - Brasil
+                      Ananindeua, ParÃ¡ - Brasil
                     </p>
                   </div>
                 </div>
               </div>
             </motion.div>
-            
-            <motion.div 
-              variants={itemVariants}
-              className="lg:w-2/3"
-            >
+
+            <motion.div variants={itemVariants} className="lg:w-2/3">
               <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-700 rounded-lg shadow-md p-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
@@ -140,7 +185,7 @@ const Contact: React.FC = () => {
                       required
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                       Email
@@ -156,7 +201,7 @@ const Contact: React.FC = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div className="mb-6">
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Assunto
@@ -171,7 +216,7 @@ const Contact: React.FC = () => {
                     required
                   />
                 </div>
-                
+
                 <div className="mb-6">
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Mensagem
@@ -186,12 +231,25 @@ const Contact: React.FC = () => {
                     required
                   />
                 </div>
-                
+
+                {status.message && (
+                  <div
+                    className={`mb-6 rounded-lg px-4 py-3 text-sm ${
+                      status.type === 'success'
+                        ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200'
+                        : 'bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200'
+                    }`}
+                  >
+                    {status.message}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white rounded-lg transition-colors shadow-md"
+                  disabled={isSubmitting}
+                  className="px-6 py-3 bg-teal-500 hover:bg-teal-600 disabled:opacity-70 disabled:cursor-not-allowed text-white rounded-lg transition-colors shadow-md"
                 >
-                  Enviar Mensagem
+                  {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
                 </button>
               </form>
             </motion.div>
