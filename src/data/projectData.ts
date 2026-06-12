@@ -6,6 +6,11 @@ export interface Project {
   longDescription?: string;
   technologies: string[];
   imageUrl: string;
+  galleryImages?: {
+    src: string;
+    alt?: string;
+    caption?: string;
+  }[];
   category: 'frontend' | 'backend' | 'design' | 'iot' | 'Artigos';
   githubUrl?: string;
   inProgress?: boolean;
@@ -20,6 +25,18 @@ export const projects: Project[] = [
     description: "Desenvolvi um sistema web completo para a Cosanpa, com o objetivo de monitorar e gerenciar dados de sensores em tempo real. A solução foi projetada para fornecer uma visão clara e interativa das medições coletadas em pontos específicos da rede de abastecimento.",
     technologies: ["Angular", "TypeScript", "ExcelJS", "Figma"],
     imageUrl: "/cosanpa.png",
+    // galleryImages: [
+    //   {
+    //     src: "/cosanpa.png",
+    //     alt: "Tela principal do sistema supervisÃ³rio da Cosanpa",
+    //     caption: "VisÃ£o geral do dashboard do sistema."
+    //   },
+    //   {
+    //     src: "/perfil.png",
+    //     alt: "Tela complementar do projeto Cosanpa",
+    //     caption: "Exemplo de imagem adicional no carrossel do projeto."
+    //   }
+    // ],
     category: "frontend",
     githubUrl: "https://github.com/Gabstaudt/projeto-web"
   },
@@ -151,10 +168,10 @@ export const projects: Project[] = [
   {
     id: 14,
     slug: "monitoramento-plantas-ecossistemas",
-    title: "Plataforma de Monitoramento de Plantas",
+    title: "SyncGarden: Plataforma de Monitoramento de Plantas",
     description: "Plataforma em andamento para monitoramento de plantas com sensores IoT. O sistema organiza os dados por ecossistemas, cada um com um admin master responsável por permissões e gestão de usuários. Back-end em NestJS, front-end em Next.js, Docker, PostgreSQL e schema no Prisma, com integração de sensores para coleta em tempo real.",
     technologies: ["NestJS", "Next.js", "IoT", "Sensores", "TypeScript", "Docker", "PostgreSQL", "Prisma"],
-    imageUrl: "/placeholder.png",
+    imageUrl: "/syncgarden.png",
     category: "iot",
     githubUrl: "",
     inProgress: true

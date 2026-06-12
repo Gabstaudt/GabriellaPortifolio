@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { projects } from '../data/projectData';
 
 const ProjectDetail: React.FC = () => {
   const { slug } = useParams();
   const project = projects.find((item) => item.slug === slug);
+  const galleryImages = project
+    ? project.galleryImages?.length
+      ? project.galleryImages
+      : [{ src: project.imageUrl, alt: project.title }]
+    : [];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    setCurrentImageIndex(0);
+  }, [slug]);
 
   if (!project) {
     return (
       <section className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold mb-4">Projeto nÃ£o encontrado</h1>
+          <h1 className="text-3xl font-bold mb-4">Projeto nÃƒÂ£o encontrado</h1>
           <p className="text-gray-700 dark:text-gray-300 mb-8">
-            O projeto que vocÃª tentou acessar nÃ£o existe ou foi removido.
+            O projeto que vocÃƒÂª tentou acessar nÃƒÂ£o existe ou foi removido.
           </p>
           <Link
             to="/#projects"
@@ -28,6 +39,20 @@ const ProjectDetail: React.FC = () => {
   const relatedProjects = (project.relatedSlugs ?? [])
     .map((relatedSlug) => projects.find((item) => item.slug === relatedSlug))
     .filter((item): item is NonNullable<typeof item> => Boolean(item));
+  const hasMultipleImages = galleryImages.length > 1;
+  const currentImage = galleryImages[currentImageIndex];
+
+  const showPreviousImage = () => {
+    setCurrentImageIndex((current) =>
+      current === 0 ? galleryImages.length - 1 : current - 1
+    );
+  };
+
+  const showNextImage = () => {
+    setCurrentImageIndex((current) =>
+      current === galleryImages.length - 1 ? 0 : current + 1
+    );
+  };
 
   return (
     <section className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-24">
@@ -42,13 +67,74 @@ const ProjectDetail: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-          <div className="rounded-2xl overflow-hidden shadow-lg bg-gray-100 dark:bg-gray-800">
-            <img
-              src={project.imageUrl}
-              alt={project.title}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
+          <div>
+            <div className="relative rounded-2xl overflow-hidden shadow-lg bg-gray-100 dark:bg-gray-800 aspect-[4/3]">
+              <img
+                src={currentImage.src}
+                alt={currentImage.alt ?? project.title}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+
+              {hasMultipleImages && (
+                <>
+                  <button
+                    type="button"
+                    onClick={showPreviousImage}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 rounded-full bg-black/45 text-white hover:bg-black/65 transition-colors"
+                    aria-label="Imagem anterior"
+                  >
+                    <ChevronLeft size={22} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={showNextImage}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 rounded-full bg-black/45 text-white hover:bg-black/65 transition-colors"
+                    aria-label="PrÃ³xima imagem"
+                  >
+                    <ChevronRight size={22} />
+                  </button>
+                  <div className="absolute bottom-3 right-3 rounded-full bg-black/55 px-3 py-1 text-xs font-medium text-white">
+                    {currentImageIndex + 1} / {galleryImages.length}
+                  </div>
+                </>
+              )}
+            </div>
+
+            {currentImage.caption && (
+              <p className="mt-3 text-sm text-gray-600 dark:text-gray-300">
+                {currentImage.caption}
+              </p>
+            )}
+
+            {hasMultipleImages && (
+              <div className="mt-4 grid grid-cols-3 sm:grid-cols-4 gap-3">
+                {galleryImages.map((image, index) => {
+                  const isActive = index === currentImageIndex;
+
+                  return (
+                    <button
+                      key={`${project.slug}-gallery-${index}`}
+                      type="button"
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`overflow-hidden rounded-xl border-2 transition-all ${
+                        isActive
+                          ? 'border-teal-500 shadow-md'
+                          : 'border-transparent hover:border-teal-300'
+                      }`}
+                      aria-label={`Abrir imagem ${index + 1} do projeto ${project.title}`}
+                    >
+                      <img
+                        src={image.src}
+                        alt={image.alt ?? `${project.title} ${index + 1}`}
+                        className="h-20 w-full object-cover"
+                        loading="lazy"
+                      />
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </div>
 
           <div>
