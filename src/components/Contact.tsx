@@ -62,8 +62,7 @@ const Contact: React.FC = () => {
     if (!contactEndpoint) {
       setStatus({
         type: 'error',
-        message:
-          'Configure VITE_CONTACT_FORM_ENDPOINT para que o formulÃ¡rio envie mensagens.'
+        message: 'Configure VITE_CONTACT_FORM_ENDPOINT para que o formulário envie mensagens.'
       });
       return;
     }
@@ -90,11 +89,10 @@ const Contact: React.FC = () => {
         message: 'Mensagem enviada com sucesso. Vou receber no email configurado.'
       });
       setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
+    } catch {
       setStatus({
         type: 'error',
-        message:
-          'NÃ£o foi possÃ­vel enviar a mensagem agora. Verifique a configuraÃ§Ã£o do endpoint.'
+        message: 'Não foi possível enviar a mensagem agora. Verifique a configuração do endpoint.'
       });
     } finally {
       setIsSubmitting(false);
@@ -120,7 +118,7 @@ const Contact: React.FC = () => {
           <div className="flex flex-col lg:flex-row gap-12">
             <motion.div variants={itemVariants} className="lg:w-1/3">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-                InformaÃ§Ãµes de Contato
+                Informações de Contato
               </h3>
 
               <div className="space-y-6">
@@ -158,10 +156,10 @@ const Contact: React.FC = () => {
                   </div>
                   <div className="ml-4">
                     <p className="text-base font-medium text-gray-900 dark:text-white">
-                      LocalizaÃ§Ã£o
+                      Localização
                     </p>
                     <p className="text-base text-gray-700 dark:text-gray-300">
-                      Ananindeua, ParÃ¡ - Brasil
+                      Ananindeua, Pará - Brasil
                     </p>
                   </div>
                 </div>

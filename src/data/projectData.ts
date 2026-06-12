@@ -11,7 +11,7 @@ export interface Project {
     alt?: string;
     caption?: string;
   }[];
-  category: 'frontend' | 'backend' | 'design' | 'iot' | 'Artigos';
+  category: 'Desenvolvimento' | 'Artigos';
   githubUrl?: string;
   inProgress?: boolean;
   relatedSlugs?: string[];
@@ -37,7 +37,7 @@ export const projects: Project[] = [
     //     caption: "Exemplo de imagem adicional no carrossel do projeto."
     //   }
     // ],
-    category: "frontend",
+    category: "Desenvolvimento",
     githubUrl: "https://github.com/Gabstaudt/projeto-web"
   },
   {
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     description: "Desenvolvi um aplicativo web de bingo interativo com o objetivo de criar uma experiência divertida e automatizada para sorteios em eventos e atividades. Criado com o intuito de conseguir marcar várias cartelas de forma simultânea",
     technologies: ["JavaScript", "HTML", "CSS"],
     imageUrl: "/bingo.png",
-    category: "frontend",
+    category: "Desenvolvimento",
     githubUrl: "https://github.com/Gabstaudt/bingo_novo"
   },
   {
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     description: "Sistema para monitoramento remoto de sensores de temperatura e umidade utilizando ESP32 e dashboard web.",
     technologies: ["ESP32", "JavaScript", "Express.js", "Node.js", "HTML", "CSS"],
     imageUrl: "/plant.png",
-    category: "iot",
+    category: "Desenvolvimento",
     githubUrl:"https://github.com/Gabstaudt/PlantConnect",
     relatedSlugs: ["artigo-plant-connect"]
   },
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     description: "Desenvolvi uma landing page moderna e responsiva para uma churrascaria, com foco na apresentação do espaço, cardápio e facilitação do contato. A página destaca os principais serviços da churrascaria, com seções bem estruturadas, design visual atraente.",
     technologies: ["JavaScript", "HTML", "CSS"],
     imageUrl: "/churrascaria.png",
-    category: "frontend",
+    category: "Desenvolvimento",
     githubUrl: "https://github.com/Gabstaudt/churrascaria"
   },
   {
@@ -89,7 +89,7 @@ export const projects: Project[] = [
     description: "Desenvolvi o Desafio Matemático, um projeto web interativo focado em aprimorar o raciocínio lógico e a rapidez nos cálculos",
     technologies: ["JavaScript", "HTML", "CSS"],
     imageUrl: "/matematico.png",
-    category: "frontend",
+    category: "Desenvolvimento",
     githubUrl:"https://github.com/Gabstaudt/deafio-matematico"
   },
     {
@@ -99,7 +99,7 @@ export const projects: Project[] = [
     description: "Projeto Ecommerce desenvolvido para a disciplina de Programação Web, com o objetivo de praticar conceitos de front-end e back-end.",
     technologies: ["JavaScript", "HTML", "CSS", "Node.js", "Express.js", "MySQL"],
     imageUrl: "/robo.png",
-    category: "frontend",
+    category: "Desenvolvimento",
     githubUrl:"https://github.com/Gabstaudt/novoprojetoweb"
   },
     {
@@ -178,7 +178,7 @@ export const projects: Project[] = [
       //   caption: "Tela de dashboard inicial do perfil administrador"
       // }
     ],
-    category: "backend",
+    category: "Desenvolvimento",
     githubUrl: "",
     inProgress: true
   },
@@ -189,7 +189,7 @@ export const projects: Project[] = [
     description: "Plataforma em andamento para monitoramento de plantas com sensores IoT. O sistema organiza os dados por ecossistemas, cada um com um admin master responsável por permissões e gestão de usuários. Back-end em NestJS, front-end em Next.js, Docker, PostgreSQL e schema no Prisma, com integração de sensores para coleta em tempo real.",
     technologies: ["NestJS", "Next.js", "IoT", "Sensores", "TypeScript", "Docker", "PostgreSQL", "Prisma"],
     imageUrl: "/syncgarden.png",
-    category: "iot",
+    category: "Desenvolvimento",
     githubUrl: "",
     inProgress: true
   },
@@ -200,7 +200,7 @@ export const projects: Project[] = [
     description: "Jogo mobile em andamento que incentiva o ensino de programação por meio de desafios gamificados. Front-end mobile em Kotlin e back-end em C++, com mecânicas voltadas para lógica e resolução de problemas.",
     technologies: ["Kotlin", "C++", "Mobile", "Gamificação"],
     imageUrl: "/placeholder.png",
-    category: "frontend",
+    category: "Desenvolvimento",
     githubUrl: "",
     inProgress: true
   },
@@ -228,7 +228,7 @@ export const projects: Project[] = [
         caption: "Tela de análise de imagem do exame de colposcopia, seleção de paciente e resultado"
       }
     ],
-    category: "backend",
+    category: "Desenvolvimento",
     githubUrl: "",
     inProgress: true,
     relatedSlugs: ["artigo-prototipo-classificacao-papanicolau"]
@@ -262,7 +262,7 @@ export const projects: Project[] = [
         caption: "Tela de anáuditoria do sistema"
       }
     ],
-    category: "backend",
+    category: "Desenvolvimento",
     githubUrl: "",
     inProgress: true,
     relatedSlugs: ["artigo-modelo-conceitual-blockchain"]
@@ -274,7 +274,7 @@ export const projects: Project[] = [
     description: "Um jogo desenvolvido para ludicidade no aprendizado do Modelo OSI. O jogo contém 3 modelos sendo: individual, cooperativo e competitivo. No individual o usuário responde um quiz com o fundamento de restaurar a rede seguindo o modelo. No modo cooperativo, um jogador atua como operador e o outro como analista para restaurar a rede. Já no modelo competitivo dois ou mais jogadores respondem o quiz e recebem um ranking ao final da partida.",
     technologies: ["Jogo", "Modelo OSI", "Redes e Computadores", "Engenharia de Software"],
     imageUrl: "/jogoosi.png",
-    category: "backend",
+    category: "Desenvolvimento",
     githubUrl: "",
     inProgress: true,
     relatedSlugs: ["conexao-perdida"]

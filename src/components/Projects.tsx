@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { projects } from '../data/projectData';
+import { projects, type Project } from '../data/projectData';
 
 const Projects: React.FC = () => {
-  const [filter, setFilter] = useState<string | null>(null);
+  const [filter, setFilter] = useState<Project['category'] | null>(null);
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -32,17 +32,14 @@ const Projects: React.FC = () => {
     }
   };
 
-  const filteredProjects = filter 
-    ? projects.filter(project => project.category === filter)
+  const filteredProjects = filter
+    ? projects.filter((project) => project.category === filter)
     : projects;
 
   const categories = [
     { id: null, name: 'Todos' },
-    { id: 'frontend', name: 'Front-end' },
-    { id: 'backend', name: 'Back-end' },
-    { id: 'design', name: 'Design' },
-    { id: 'iot', name: 'IoT' },
-    {id: 'Artigos', name: 'Artigos'}
+    { id: 'Desenvolvimento', name: 'Desenvolvimento' },
+    { id: 'Artigos', name: 'Artigos' }
   ];
 
   return (
